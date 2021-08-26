@@ -106,10 +106,10 @@ public class Executable {
 		System.out.println("----------------------------------");		
 
 
-		//Teste login válido
+		//Teste de login válido
 		user.login("alinedmsoares@gmail.com", "123Abc");
 		
-		//Teste login inválido
+		//Teste de login inválido
 		user.login("alinedmsoares@gmail.com", "321Abc");
 	}
 
