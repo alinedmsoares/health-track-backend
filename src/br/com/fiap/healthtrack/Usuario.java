@@ -1,65 +1,169 @@
 package br.com.fiap.healthtrack;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class Usuario {
+
+/**
+ * Classe Usuário
+ * @author Aline Soares
+ * @version 0.1
+ */
+
+public class Usuario implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
-	private int idUsuario;
-	private String nome;
-	private Date dtNascimento;
-	private String genero;
-	private Double altura;
-	private String email;
-	private String senha;
+	private int idUser; //Id do usuário
+	private String name; //Nome do usuário
+	private String birthdate; //Data de nascimento do usuário
+	private String genre; //Gênero do usuário
+	private Double height; //Altura do usuário
+	private String email; //Email do usuário
+	private String password; //Senha do usuário
 	
-	public int getIdUsuario() {
-		return idUsuario;
-	}
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
-	}
 	
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+	/**
+	 * @param idUser
+	 * @param name
+	 * @param birthdate
+	 * @param genre
+	 * @param height
+	 * @param email
+	 * @param password
+	 */
 	
-	public Date getDtNascimento() {
-		return dtNascimento;
-	}
-	public void setDtNascimento(Date dtNascimento) {
-		this.dtNascimento = dtNascimento;
-	}
-	
-	public String getGenero() {
-		return genero;
-	}
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
-	
-	public Double getAltura() {
-		return altura;
-	}
-	public void setAltura(Double altura) {
-		this.altura = altura;
+	public Usuario(int idUser, String name, String birthdate, String genre, Double height, String email,
+			String password) {
+		super();
+		this.idUser = idUser;
+		this.name = name;
+		this.birthdate = birthdate;
+		this.genre = genre;
+		this.height = height;
+		this.email = email;
+		this.password = password;
 	}
 	
+	/**
+	 * Realizar login
+	 * @param Email
+	 * @param Senha
+	 */
+	public void login(String email, String password) {
+		
+		this.email = "alinedmsoares@gmail.com";
+		this.password = "123Abc";
+				
+		if(email == this.email && password == this.password) {
+			
+			System.out.println("Login válido");
+		} else {
+			
+			System.out.println("Login inválido");
+		}
+	}
+	
+	/**
+	 * Verificar id do usuário
+	 */
+	public int getIdUser() {
+		return idUser;
+	}
+	/**
+	 * Configurar id do usuário
+	 * @param novo id do usuário
+	 */
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
+	}
+	
+	
+	/**
+	 * Verificar nome do usuário
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * Configurar nome do usuário
+	 * @param novo nome do usuário
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+	/**
+	 * Verificar data de nascimento do usuário
+	 */
+	public String getBirthdate() {
+		return birthdate;
+	}
+	/**
+	 * Configurar data de nascimento do usuário
+	 * @param nova data de nascimento do usuário
+	 */
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
+	
+	
+	/**
+	 * Verificar gênero do usuário
+	 */
+	public String getGenre() {
+		return genre;
+	}
+	/**
+	 * Configurar gênero do usuário
+	 * @param novo gênero do usuário
+	 */
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	
+	
+	/**
+	 * Verificar altura do usuário
+	 */
+	public Double getHeight() {
+		return height;
+	}
+	/**
+	 * Configurar altura do usuário
+	 * @param nova altura do usuário
+	 */
+	public void setHeight(Double height) {
+		this.height = height;
+	}
+	
+	
+	/**
+	 * Verificar email do usuário
+	 */
 	public String getEmail() {
 		return email;
 	}
+	/**
+	 * Configurar email do usuário
+	 * @param novo email do usuário
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getSenha() {
-		return senha;
+	
+	/**
+	 * Verificar senha do usuário
+	 */
+	public String getPassword() {
+		return password;
 	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}	
-	
-	
+	/**
+	 * Configurar senha do usuário
+	 * @param nova senha do usuário
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 }
