@@ -113,4 +113,20 @@ public class Executable {
 		user.login("alinedmsoares@gmail.com", "321Abc");
 	}
 
+	Atividade user = new Atividade(01, 60, "28/08/21", 600, "forte");
+	
+//	------------- Id da Atividade ------------- 
+	System.out.println("Exibindo o id da atividade:");
+	System.out.println(user.getIdUser());
+	
+	/**
+	 * Alterar id da Atividade
+	 * @param novo id da Atividade
+	 */
+	user.setIdUser(321);
+	
+	System.out.println("Exibindo o novo id do usuário:");
+	System.out.println(user.getIdUser());
+	System.out.println("----------------------------------");
+
 }
