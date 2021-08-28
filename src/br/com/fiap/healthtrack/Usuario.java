@@ -64,6 +64,7 @@ public class Usuario implements Serializable{
 	
 	/**
 	 * Verificar id do usuário
+	 * @return Id do usuário
 	 */
 	public int getIdUser() {
 		return idUser;
@@ -79,6 +80,7 @@ public class Usuario implements Serializable{
 	
 	/**
 	 * Verificar nome do usuário
+	 * @return Nome do usuário
 	 */
 	public String getName() {
 		return name;
@@ -94,6 +96,7 @@ public class Usuario implements Serializable{
 	
 	/**
 	 * Verificar data de nascimento do usuário
+	 * @return Data de nascimento
 	 */
 	public String getBirthdate() {
 		return birthdate;
@@ -109,6 +112,7 @@ public class Usuario implements Serializable{
 	
 	/**
 	 * Verificar gênero do usuário
+	 * @return Gênero do usuário.
 	 */
 	public String getGenre() {
 		return genre;
@@ -125,6 +129,7 @@ public class Usuario implements Serializable{
 	
 	/**
 	 * Verificar altura do usuário
+	 * @return Altura do usuário
 	 */
 	public Double getHeight() {
 		return height;
@@ -140,6 +145,7 @@ public class Usuario implements Serializable{
 	
 	/**
 	 * Verificar email do usuário
+	 * @return email do usuário
 	 */
 	public String getEmail() {
 		return email;
@@ -154,6 +160,7 @@ public class Usuario implements Serializable{
 	
 	/**
 	 * Verificar senha do usuário
+	 * @return senha do usuário
 	 */
 	public String getPassword() {
 		return password;

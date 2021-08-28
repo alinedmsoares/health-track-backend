@@ -24,7 +24,6 @@ public class Pressao implements Serializable {
 	 * @param systolicPressure - Pressão Sistólica
 	 * @param diastolicPressure - Pressão Diastólica
 	 * @param dtMeasurement - Data da medição
-	 * @param pressureSituation - Situação da pressão
 	 */
 	public Pressao(int idPressure, double systolicPressure, double diastolicPressure, String dtMeasurement) {
 		super();
@@ -60,6 +59,7 @@ public class Pressao implements Serializable {
 
 	/**
 	 * Verificar id da pressão
+	 * @return Id da pressão.
 	 */
 	public int getIdPressure() {
 		return idPressure;
@@ -76,6 +76,7 @@ public class Pressao implements Serializable {
 
 	/**
 	 * Verificar Pressão Sistólica
+	 * @return Pressão sistólica.
 	 */
 	public double getSystolicPressure() {
 		return systolicPressure;
@@ -92,6 +93,7 @@ public class Pressao implements Serializable {
 
 	/**
 	 * Verificar Pressão Diastólica
+	 * @return Pressão diastólica.
 	 */
 	public double getDiastolicPressure() {
 		return diastolicPressure;
@@ -108,6 +110,7 @@ public class Pressao implements Serializable {
 
 	/**
 	 * Verificar Data de Medição da Pressão
+	 * @return Data de medição da pressão.
 	 */
 	public String getDtMeasurement() {
 		return dtMeasurement;
@@ -124,6 +127,7 @@ public class Pressao implements Serializable {
 
 	/**
 	 * Verificar Situação da Pressão
+	 * @return Situação da pressão.
 	 */
 	public String getPressureSituation() {
 		return pressureSituation;
@@ -139,8 +143,5 @@ public class Pressao implements Serializable {
 	}
 
 	
-
-
-
 
 }

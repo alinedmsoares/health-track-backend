@@ -11,12 +11,30 @@ import java.io.Serializable;
 public class Atividade implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private int idActivity; //Id Atividade
-	private String activityType; //Tipo de atividade
-	private int duration; //Duração da atividade
-	private String date; //Data da atividade
-	private int calorie; //Quantidade de calorias
-	private String senseExertion; //Sensação de esforço
+	/**
+	 * Id Atividade
+	 */
+	private int idActivity; 
+	/**
+	 * Tipo de atividade
+	 */
+	private String activityType;
+	/**
+	 * Duração da atividade
+	 */
+	private int duration;
+	/**
+	 * Data da atividade
+	 */
+	private String date;
+	/**
+	 * Quantidade de calorias
+	 */
+	private int calorie;
+	/**
+	 * Sensação de esforço
+	 */
+	private String senseExertion;
 		
 	/**
 	 * @param idActivity - Id da Atividade
@@ -48,6 +66,7 @@ public class Atividade implements Serializable{
 	}
 	/**
 	 * Buscar Id Atividade
+	 * @return Id da Atividade
 	 */
 	public int getIdActivity () {
 		
@@ -57,7 +76,7 @@ public class Atividade implements Serializable{
 	
 	/**
 	 * Inserir Tipo de Atividade
-	 * @param ActivityType - Tipo da atividade
+	 * @param activityType - Tipo da atividade
 	 */
 	public void setActivityType (String activityType) {
 		
@@ -66,6 +85,7 @@ public class Atividade implements Serializable{
 	}
 	/**
 	 * Buscar Tipo de Atividade
+	 * @return Tipo de Atividade
 	 */
 	public String getActivityType () {
 		
@@ -85,6 +105,7 @@ public class Atividade implements Serializable{
 	}
 	/**
 	 * Buscar Duração da Atividade
+	 * @return Duração da Atividade
 	 */
 	public int getDuration () {
 		
@@ -104,6 +125,7 @@ public class Atividade implements Serializable{
 	}
 	/**
 	 * Buscar Data da Atividade
+	 * @return Data da Atividade
 	 */
 	public String getDate () {
 		
@@ -120,6 +142,7 @@ public class Atividade implements Serializable{
 	}
 	/**
 	 * Buscar Calorias da Atividade
+	 * @return Calorias gastas com a atividade
 	 */
 	public int getCalorie () {
 		
@@ -129,21 +152,16 @@ public class Atividade implements Serializable{
 	 * Inserir Sensação de Esforço
 	 * @param senseExertion - Sensação de esforço na atividade
 	 */
-	public void setSenseExertion (String senseExtersion) {
+	public void setSenseExertion (String senseExertion) {
 					
-		this.senseExertion = senseExtersion;
+		this.senseExertion = senseExertion;
 	}
 	/**
 	 * Buscar Sensação de Esforço
+	 * @return Sensação de esforço na atividade
 	 */
 	public String getSenseExertion () {
 		
 		return senseExertion;
 	}
 }
-	
-			
-			
-			
-			
-		

@@ -1,4 +1,5 @@
 package br.com.fiap.healthtrack;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -32,6 +33,7 @@ public class Peso implements Serializable{
 	
 	/**
 	 * Buscar Id Peso
+	 * @return Id do registro de peso do usuário
 	 */
 	public int getIdWeight() {
 		return idWeight;
@@ -47,6 +49,7 @@ public class Peso implements Serializable{
 	
 	/**
 	 * Buscar Pesagem
+	 * @return O peso do usuário
 	 */
 	public double getWeight() {
 		return weight;
@@ -63,6 +66,7 @@ public class Peso implements Serializable{
 	
 	/**
 	 * Buscar Data Pesagem
+	 * @return A data do peso do usuário
 	 */
 	public Date getDtWeighing() {
 		return dtWeighing;
