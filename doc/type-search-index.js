@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"br.com.fiap.healthtrack","l":"Usuario"}];updateSearchResults();
+typeSearchIndex = [{"p":"br.com.fiap.healthtrack","l":"Alimentacao"},{"p":"br.com.fiap.healthtrack","l":"Alimento"},{"l":"All Classes","u":"allclasses-index.html"},{"p":"br.com.fiap.healthtrack","l":"Atividade"},{"p":"br.com.fiap.healthtrack","l":"Executable"},{"p":"br.com.fiap.healthtrack","l":"Peso"},{"p":"br.com.fiap.healthtrack","l":"Pressao"},{"p":"br.com.fiap.healthtrack","l":"Usuario"}];updateSearchResults();

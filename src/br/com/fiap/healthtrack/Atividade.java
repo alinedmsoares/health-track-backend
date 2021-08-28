@@ -3,7 +3,7 @@ package br.com.fiap.healthtrack;
 import java.io.Serializable;
 
 /**
- * Classe Usuário
+ * Classe Atividade
  * @author Adriana Estima
  * @version 0.1
  */
@@ -11,23 +11,26 @@ import java.io.Serializable;
 public class Atividade implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private int idtype; //Id type
+	private int idActivity; //Id Atividade
+	private String activityType; //Tipo de atividade
 	private int duration; //Duração da atividade
 	private String date; //Data da atividade
 	private int calorie; //Quantidade de calorias
 	private String senseExertion; //Sensação de esforço
 		
 	/**
-	 * @param idType
-	 * @param duration
-	 * @param date
-	 * @param calorie
-	 * @param senseExertion
+	 * @param idActivity - Id da Atividade
+	 * @param activityType - Tipo da atividade
+	 * @param duration - Duração da atividade
+	 * @param date - Data da realização da atividade
+	 * @param calorie - Calorias gastas com a atividade
+	 * @param senseExertion - Sensação de esforço na atividade
 	*/
 	
-	public Atividade(int idType, int duration , String date, int calorie, String senseExertion) {
+	public Atividade(int idActivity, String activityType, int duration , String date, int calorie, String senseExertion) {
 		super();
-		this.idType = idType;
+		this.idActivity = idActivity;
+		this.activityType = activityType;
 		this.duration = duration;
 		this.date = date;
 		this.calorie = calorie;
@@ -35,27 +38,44 @@ public class Atividade implements Serializable{
 	}
 	
 	/**
-	 * Inserir Tipo de Atividade
-	 * @param IdAtividade
+	 * Inserir Id Atividade
+	 * @param idActivity - Id da Atividade
 	 */
-	public void setidType (int idType) {
+	public void setIdActivity (int idActivity) {
 		
-		this.idType = idType;
+		this.idActivity = idActivity;
+		
+	}
+	/**
+	 * Buscar Id Atividade
+	 */
+	public int getIdActivity () {
+		
+		return idActivity;
+		
+	}
+	
+	/**
+	 * Inserir Tipo de Atividade
+	 * @param ActivityType - Tipo da atividade
+	 */
+	public void setActivityType (String activityType) {
+		
+		this.activityType = activityType;
 		
 	}
 	/**
 	 * Buscar Tipo de Atividade
-	 * @param IdAtividade
 	 */
-	public idType getidType () {
+	public String getActivityType () {
 		
-		return = this.idType;
+		return activityType;
 		
 	}
 		
 	/**
 	 * Inserir Duração da Atividade
-	 * @param duration
+	 * @param duration - Duração da atividade
 	 */
 		
 	public void setDuration (int duration) {
@@ -65,17 +85,16 @@ public class Atividade implements Serializable{
 	}
 	/**
 	 * Buscar Duração da Atividade
-	 * @param duration
 	 */
-	public duration getDuration () {
+	public int getDuration () {
 		
-		return = this.duration;
+		return duration;
 		
 	}
 		
 	/**
 	 * Inserir Data da Atividade
-	 * @param date
+	 * @param date - Data da realização da atividade
 	 */
 		
 	public void setDate (String date) {
@@ -85,16 +104,15 @@ public class Atividade implements Serializable{
 	}
 	/**
 	 * Buscar Data da Atividade
-	 * @param date
 	 */
-	public date getDate () {
+	public String getDate () {
 		
-		return = this.date;
+		return date;
 		
 	}
 	/**
 	 * Inserir Calorias da Atividade
-	 * @param calorie
+	 * @param calorie - Calorias gastas com a atividade
 	 */
 	public void setCalorie (int calorie) {
 					
@@ -102,15 +120,14 @@ public class Atividade implements Serializable{
 	}
 	/**
 	 * Buscar Calorias da Atividade
-	 * @param calorie
 	 */
-	public calorie getCalorie () {
+	public int getCalorie () {
 		
-		return = this.calorie;
+		return calorie;
 	}
 	/**
 	 * Inserir Sensação de Esforço
-	 * @param senseExertion
+	 * @param senseExertion - Sensação de esforço na atividade
 	 */
 	public void setSenseExertion (String senseExtersion) {
 					
@@ -118,12 +135,12 @@ public class Atividade implements Serializable{
 	}
 	/**
 	 * Buscar Sensação de Esforço
-	 * @param senseExtersion
 	 */
-	public senseExertion getsenseExertion () {
+	public String getSenseExertion () {
 		
-		return = this.senseExertion;
+		return senseExertion;
 	}
+}
 	
 			
 			

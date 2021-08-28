@@ -22,13 +22,13 @@ public class Usuario implements Serializable{
 	
 	
 	/**
-	 * @param idUser
-	 * @param name
-	 * @param birthdate
-	 * @param genre
-	 * @param height
-	 * @param email
-	 * @param password
+	 * @param idUser - Id do usuário
+	 * @param name - Nome do usuário
+	 * @param birthdate - Data de nascimento do usuário
+	 * @param genre - Gênero do usuário
+	 * @param height - Altura do usuário
+	 * @param email - Email do usuário
+	 * @param password - Senha do usuário
 	 */
 	
 	public Usuario(int idUser, String name, String birthdate, String genre, Double height, String email,
@@ -45,8 +45,8 @@ public class Usuario implements Serializable{
 	
 	/**
 	 * Realizar login
-	 * @param Email
-	 * @param Senha
+	 * @param email - Email do usuário
+	 * @param password - Senha do usuário
 	 */
 	public void login(String email, String password) {
 		
@@ -70,7 +70,7 @@ public class Usuario implements Serializable{
 	}
 	/**
 	 * Configurar id do usuário
-	 * @param novo id do usuário
+	 * @param idUser - Id do usuário
 	 */
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
@@ -85,7 +85,7 @@ public class Usuario implements Serializable{
 	}
 	/**
 	 * Configurar nome do usuário
-	 * @param novo nome do usuário
+	 * @param name - Nome do usuário
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -100,7 +100,7 @@ public class Usuario implements Serializable{
 	}
 	/**
 	 * Configurar data de nascimento do usuário
-	 * @param nova data de nascimento do usuário
+	 * @param birthdate - Data de nascimento do usuário
 	 */
 	public void setBirthdate(String birthdate) {
 		this.birthdate = birthdate;
@@ -115,7 +115,7 @@ public class Usuario implements Serializable{
 	}
 	/**
 	 * Configurar gênero do usuário
-	 * @param novo gênero do usuário
+	 * @param genre - Gênero do usuário
 	 */
 
 	public void setGenre(String genre) {
@@ -131,7 +131,7 @@ public class Usuario implements Serializable{
 	}
 	/**
 	 * Configurar altura do usuário
-	 * @param nova altura do usuário
+	 * @param height - Altura do usuário
 	 */
 	public void setHeight(Double height) {
 		this.height = height;
@@ -146,7 +146,7 @@ public class Usuario implements Serializable{
 	}
 	/**
 	 * Configurar email do usuário
-	 * @param novo email do usuário
+	 * @param email - Email do usuário
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -160,7 +160,7 @@ public class Usuario implements Serializable{
 	}
 	/**
 	 * Configurar senha do usuário
-	 * @param nova senha do usuário
+	 * @param password - Senha do usuário
 	 */
 	public void setPassword(String password) {
 		this.password = password;
