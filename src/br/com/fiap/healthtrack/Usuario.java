@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class Usuario extends Pessoa implements Serializable {
 	
 	/**
-	 * Controle de versionamento de objetos da classe Alimentacao.
+	 * Controle de versionamento de objetos da classe Usuario.
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -30,38 +30,29 @@ public class Usuario extends Pessoa implements Serializable {
 	private Double height;
 	
 	
-	
-	// Construtores da Classe
-	
+// Método construtor
 	/**
-	 * Construtor padrão da classe Usuario.
+	 * @param idPessoa
+	 * @param name
+	 * @param birthdate
+	 * @param genre
+	 * @param email
+	 * @param password
 	 */
-	public Usuario() {
-		super();
-	}
-	
 	/**
 	 * Construtor da classe Usuario
 	 * @param idUser - Id do usuário
 	 * @param height - Altura do usuário
 	 */
-	public Usuario(int idUser, Double height) {
-		super();
+	
+	public Usuario(int idPessoa, String name, String birthdate, String genre, String email, String password, int idUser, Double height) {
+		super(idPessoa, name, birthdate, genre, email, password);
 		this.idUser = idUser;
 		this.height = height;
-	}	
-	
-	
-	
-	// Métodos
-
-	/**
-	 * Verifica id do usuário
-	 * @return Id do usuário
-	 */
-	public int getIdUser() {
-		return idUser;
 	}
+	
+	// Métodos Get/Set
+	
 	/**
 	 * Configura id do usuário
 	 * @param idUser - Id do usuário
@@ -86,22 +77,14 @@ public class Usuario extends Pessoa implements Serializable {
 		this.height = height;
 	}
 	
-	
-	/**
-	 * Realiza o login do usuário no sistema.
-	 * @param email - Email do usuário
-	 * @param password - Senha do usuário
-	 */
-	public void login(String email, String password) {
-		String userEmail = super.getEmail();
-		String userPassword = super.getPassword();
-		if(email == userEmail && password == userPassword) {
-			System.out.println("Login válido");
-		} else {
-			System.out.println("Login inválido");
-		}
+	//Métodos sobrescritos
+	@Override
+	public void showData() {
+		super.showData();
+		System.out.println("Dados referentes ao usuário:");
+		System.out.println("ID: " + this.idUser);
+		System.out.println("Altura: " + this.height);
 	}
-	
 	
 	
 }

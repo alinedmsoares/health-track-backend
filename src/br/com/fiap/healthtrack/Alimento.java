@@ -114,5 +114,15 @@ public class Alimento implements Serializable {
 		this.kcalPerGram = kcalPerGram;
 	}
 	
+	public void showData() {
+		System.out.println("");
+		System.out.println("Dados referentes ao alimento:");
+		System.out.println(String.format("ID do alimento: %s", foodId));
+		System.out.println(String.format("Descrição do alimento: %s", foodDescription));
+		System.out.println(String.format("Peso (g) por porção: %s", gramPerPortion));
+		System.out.println(String.format("kcal por peso (g): %s", kcalPerGram));
+		System.out.println("");
+
+	}
 	
 }

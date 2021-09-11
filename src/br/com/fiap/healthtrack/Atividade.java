@@ -164,4 +164,17 @@ public class Atividade implements Serializable{
 		
 		return senseExertion;
 	}
+	
+	public void showData() {
+		System.out.println("");
+		System.out.println("Dados referentes a atividade:");
+		System.out.println("Id: " + this.idActivity);
+		System.out.println("Tipo: " +this.activityType);
+		System.out.println("Duração: " +this.duration);
+		System.out.println("Data: " +this.date);
+		System.out.println("Quantidade de calorias gastas: " +this.calorie);
+		System.out.println("Sensação de esforço: " +this.senseExertion);
+		System.out.println("");
+
+	}
 }

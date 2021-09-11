@@ -141,5 +141,14 @@ public class Alimentacao implements Serializable {
 		this.mealNotes = mealNotes;
 	}
 
-	
+	public void showData() {
+		System.out.println("");
+		System.out.println("Dados referentes a alimentação:");
+		System.out.println(String.format("Data da alimentação: %s", mealDate));
+		System.out.println(String.format("Cód. da alimentação: %s", mealType));
+		System.out.println(String.format("Total de kcal: %s", mealKcal));
+		System.out.println(String.format("Obs. da alimentação: %s", mealNotes));
+		System.out.println("");
+
+	}
 }
