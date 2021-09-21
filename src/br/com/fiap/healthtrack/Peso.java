@@ -77,8 +77,8 @@ public class Peso implements Serializable{
 	@Override
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        return "[Data = " + sdf.format(weightDate.getTime())
-                + ", Peso = " + String.format("%.1f",weight) + "kg]";
+        return "Peso [weightDate=" + sdf.format(weightDate.getTime())
+                + ", weight=" + String.format("%.1f",weight) + "]";
 	}
 	
 }
