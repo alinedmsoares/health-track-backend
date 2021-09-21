@@ -1,82 +1,84 @@
 package br.com.fiap.healthtrack;
 
 import java.io.Serializable;
-import java.util.Date;
-
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 /**
  * Classe Peso
  * @author Felipe
  * @version 0.1
  */
-
 public class Peso implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private double weight; //Peso
-	private int idWeight; //Id peso
-	private Date dtWeighing; //Data de pesagem
+	
+	
+	
+	private Calendar weightDate;
+	private double weight;
+	
+	
 	
 	/**
-	 * @param weight - Peso do usuário
-	 * @param idWeight - Id do registro de peso do usuário
-	 * @param dtWeighing - Data da pesagem
+	 * Construtor padrão da classe Peso.
 	 */
+	public Peso() {
+	}
 	
-	public Peso(double weight, int idWeight, Date dtWeighing) {
-		super();
+	/**
+	 * Construtor completo da classe Peso.
+	 * @param weightDate - Data do peso.
+	 * @param weight - Peso do usuário.
+	 */
+	public Peso(Calendar weightDate, double weight) {
+		this.weightDate = weightDate;
 		this.weight = weight;
-		this.idWeight = idWeight;
-		this.dtWeighing = dtWeighing;
 	}
 	
 	
+	
 	/**
-	 * Buscar Id Peso
-	 * @return Id do registro de peso do usuário
+	 * Consulta a data da pesagem.
+	 * @return A data da pesagem.
 	 */
-	public int getIdWeight() {
-		return idWeight;
+	public Calendar getWeightDate() {
+		return weightDate;
 	}
 	
 	/**
-	 * Inserir Id Peso
-	 * @param idWeight - Id do registro de peso do usuário
+	 * Modifica a data da pesagem.
+	 * @param weightDate A data da pesagem.
 	 */
-	public void setIdWeight(int idWeight) {
-		this.idWeight = idWeight;
+	public void setWeightDate(Calendar weightDate) {
+		this.weightDate = weightDate;
 	}
 	
+
+	
 	/**
-	 * Buscar Pesagem
-	 * @return O peso do usuário
+	 * Consulta o peso do usuário.
+	 * @return O peso do usuário.
 	 */
 	public double getWeight() {
 		return weight;
-			
 	}
 	
 	/**
-	 * Inserir Peso
-	 * @param weight - Peso do usuário
+	 * Modifica o peso do usuário.
+	 * @param weight O peso do usuário.
 	 */
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 	
-	/**
-	 * Buscar Data Pesagem
-	 * @return A data do peso do usuário
-	 */
-	public Date getDtWeighing() {
-		return dtWeighing;
+	
+
+	@Override
+	public String toString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return "[Data = " + sdf.format(weightDate.getTime())
+                + ", Peso = " + String.format("%.1f",weight) + "kg]";
 	}
 	
-	/**
-	 * Inserir Data Pesagem
-	 * @param dtWeighing - Data da pesagem
-	 */
-	public void setDtWeighing(Date dtWeighing) {
-		this.dtWeighing = dtWeighing;
-	}
 }
