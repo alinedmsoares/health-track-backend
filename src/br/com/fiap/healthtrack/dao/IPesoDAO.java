@@ -9,8 +9,10 @@ public interface IPesoDAO {
 
     List<Peso> getAll();
 
-    void update(int i, Peso weight);
+    void update(Peso weight);
 
-    void delete(int i);
+    void delete(int id);
+
+	Peso getById(int id);
 
 }

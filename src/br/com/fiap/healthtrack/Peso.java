@@ -12,9 +12,7 @@ import java.text.SimpleDateFormat;
 public class Peso implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
-	
-	
+	private int idWeight;
 	private Calendar weightDate;
 	private double weight;
 	
@@ -28,10 +26,12 @@ public class Peso implements Serializable{
 	
 	/**
 	 * Construtor completo da classe Peso.
+	 * @param idWeight - Id do peso.
 	 * @param weightDate - Data do peso.
 	 * @param weight - Peso do usuário.
 	 */
-	public Peso(Calendar weightDate, double weight) {
+	public Peso(int idWeight, Calendar weightDate, double weight) {
+		this.idWeight = idWeight;
 		this.weightDate = weightDate;
 		this.weight = weight;
 	}
@@ -70,6 +70,22 @@ public class Peso implements Serializable{
 	 */
 	public void setWeight(double weight) {
 		this.weight = weight;
+	}
+	
+	/**
+	 * Consulta o id do peso do usuário.
+	 * @return O id do peso do usuário.
+	 */
+	public int getIdWeight() {
+		return idWeight;
+	}
+	
+	/**
+	 * Modifica o peso do usuário.
+	 * @param weight O peso do usuário.
+	 */
+	public void setIdWeight(int idWeight) {
+		this.idWeight = idWeight;
 	}
 	
 	
