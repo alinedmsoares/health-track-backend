@@ -11,7 +11,6 @@ import br.com.fiap.healthtrack.dao.PesoDAO;
     	//Instancia o DAO
     	PesoDAO dao = new PesoDAO();
   
-      //Instancia o Colaborador
       Peso weight = new Peso();
       weight.setWeightDate(Calendar.getInstance());
       weight.setWeight(60.9);

@@ -1,6 +1,7 @@
 package br.com.fiap.healthtrack;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 /**
  * Classe Pressão
@@ -15,22 +16,25 @@ public class Pressao implements Serializable {
 	private int idPressure; //Id da medição
 	private double systolicPressure; //Pressão sistólica
 	private double diastolicPressure; //Pressão diastólica
-	private String dtMeasurement; //Data da medição
+	private Calendar dtMeasurement; //Data da medição
 	private String pressureSituation; //Situação da pressão
 
-
+	public Pressao() {
+		
+	};
 	/**
 	 * @param idPressure - Id da pressão
 	 * @param systolicPressure - Pressão Sistólica
 	 * @param diastolicPressure - Pressão Diastólica
 	 * @param dtMeasurement - Data da medição
 	 */
-	public Pressao(int idPressure, double systolicPressure, double diastolicPressure, String dtMeasurement) {
+	public Pressao(int idPressure, double systolicPressure, double diastolicPressure, Calendar dtMeasurement, String pressureSituation) {
 		super();
 		this.idPressure = idPressure;
 		this.systolicPressure = systolicPressure;
 		this.diastolicPressure = diastolicPressure;
 		this.dtMeasurement = dtMeasurement;
+		this.pressureSituation = pressureSituation;
 
 	}
 	
@@ -39,7 +43,7 @@ public class Pressao implements Serializable {
 	 * @param systolicPressure - Pressão Sistólica
 	 * @param diastolicPressure - Pressão Diastólica
 	 */
-	public void calculatePressureSituation(double systolicPressure, double diastolicPressure) {
+	public String calculatePressureSituation(double systolicPressure, double diastolicPressure) {
 
 		if(systolicPressure > 140 || diastolicPressure > 90) {
 			
@@ -54,6 +58,8 @@ public class Pressao implements Serializable {
 			this.pressureSituation = "Normal";
 
 		} 
+		
+		return this.pressureSituation;
 
 	}
 
@@ -112,7 +118,7 @@ public class Pressao implements Serializable {
 	 * Verificar Data de Medição da Pressão
 	 * @return Data de medição da pressão.
 	 */
-	public String getDtMeasurement() {
+	public Calendar getDtMeasurement() {
 		return dtMeasurement;
 	}
 
@@ -121,7 +127,7 @@ public class Pressao implements Serializable {
 	 * Configurar Data de Medição da Pressão
 	 * @param dtMeasurement - Data da medição
 	 */
-	public void setDtMeasurement(String dtMeasurement) {
+	public void setDtMeasurement(Calendar dtMeasurement) {
 		this.dtMeasurement = dtMeasurement;
 	}
 
