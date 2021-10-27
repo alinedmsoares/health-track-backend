@@ -23,7 +23,7 @@ public class AlimentoDAO implements IAlimentoDAO {
 		
 		try {
 	          conexao = HealthTrackDBManager.obterConexao();
-	          String sql = "INSERT INTO T_Alimento (ID_AlIMENTO, QT_CAL, DS_ALIMENTO, QT_PESO_ALIMENTO) VALUES (SQ_ALIMENTO.NEXTVAL, ?, ?, ?)";
+	          String sql = "INSERT INTO T_ALIMENTO (ID_ALIMENTO, QT_CAL, DS_ALIMENTO, QT_PESO_ALIMENTO) VALUES (SQ_ALIMENTO.NEXTVAL, ?, ?, ?)";
 	          stmt.setFloat(1, food.getKcalPerGram());
 	          stmt.setNString(2,food.getFoodDescription());
 	          stmt.setFloat(3, food.getGramPerPortion());
