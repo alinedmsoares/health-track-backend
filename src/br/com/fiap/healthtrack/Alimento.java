@@ -1,6 +1,7 @@
 package br.com.fiap.healthtrack;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 /**
  * Classe que abstrai um alimento presente em uma alimentação realizada pelo usuário.
@@ -47,7 +48,13 @@ public class Alimento implements Serializable {
 	 */
 	public Alimento() {
 	}
-	
+
+	public Alimento(int foodId, String foodDescription, float kcalPerGram, float gramPerPortion) {
+		this.foodId = foodId;
+		this.foodDescription = foodDescription;
+		this.kcalPerGram = kcalPerGram;
+		this.gramPerPortion = gramPerPortion;
+	}
 	
 	// Getters & Setters
 	
@@ -107,12 +114,13 @@ public class Alimento implements Serializable {
 		return kcalPerGram;
 	}
 	/**
-	 * Modifica a quantidade de calorias (kcal) por grama do alimento.
-	 * @param kcalPerGram kcal por grama.
+	 * Modifica a quantidade de calorias(kcal) por grama do alimento.
+	 * @param kcal por grama.
 	 */
-	public void setKcalPerGram(float kcalPerGram) {
+	public void setkcalPerGram() {
 		this.kcalPerGram = kcalPerGram;
 	}
+	
 	
 	public void showData() {
 		System.out.println("");
