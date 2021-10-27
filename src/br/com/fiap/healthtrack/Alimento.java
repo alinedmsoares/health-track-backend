@@ -117,7 +117,7 @@ public class Alimento implements Serializable {
 	 * Modifica a quantidade de calorias(kcal) por grama do alimento.
 	 * @param kcal por grama.
 	 */
-	public void setkcalPerGram() {
+	public void setkcalPerGram(float kcalPerGram) {
 		this.kcalPerGram = kcalPerGram;
 	}
 	
