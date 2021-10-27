@@ -17,7 +17,7 @@ public class Profissional extends Pessoa implements Serializable {
 
 
 
-	// Variáveis de Instância
+	// Variï¿½veis de Instï¿½ncia
 
 	/**
 	 * Id do profissional
@@ -25,17 +25,17 @@ public class Profissional extends Pessoa implements Serializable {
 	private int idProfessional;
 
 	/**
-	 * Área do profissional
+	 * ï¿½rea do profissional
 	 */
 	private String profession;
 
 	/**
-	 * Descrição do profissional
+	 * Descriï¿½ï¿½o do profissional
 	 */
 	private String description;
 
 
-	// Método construtor
+	// Mï¿½todo construtor
 	/**
 	 * @param idPessoa
 	 * @param name
@@ -47,8 +47,8 @@ public class Profissional extends Pessoa implements Serializable {
 	/**
 	 * Construtor da classe Profissional
 	 * @param idProfessional - Id do Profissional
-	 * @param profession - Área do profissional
-	 * @param description - Descrição do profissional
+	 * @param profession - ï¿½rea do profissional
+	 * @param description - Descriï¿½ï¿½o do profissional
 	 */
 
 	public Profissional(int idPessoa, String name, String birthdate, String genre, String email, String password, int idProfessional, String profession, String description) {
@@ -58,7 +58,7 @@ public class Profissional extends Pessoa implements Serializable {
 		this.description = description;
 	}
 
-	// Métodos Get/Set
+	// Mï¿½todos Get/Set
 
 
 	/**
@@ -75,8 +75,8 @@ public class Profissional extends Pessoa implements Serializable {
 	}
 
 	/**
-	 * Verifica área do profissional
-	 * @return Área do profissional
+	 * Verifica ï¿½rea do profissional
+	 * @return ï¿½rea do profissional
 	 */
 
 	public String getProfession() {
@@ -88,8 +88,8 @@ public class Profissional extends Pessoa implements Serializable {
 	}
 
 	/**
-	 * Verifica Descrição do profissional
-	 * @return Descrição do profissional
+	 * Verifica Descriï¿½ï¿½o do profissional
+	 * @return Descriï¿½ï¿½o do profissional
 	 */
 
 	public String getDescription() {
@@ -101,14 +101,14 @@ public class Profissional extends Pessoa implements Serializable {
 	}	
 
 	
-	//Métodos sobrescritos
+	//Mï¿½todos sobrescritos
 		@Override
 		public void showData() {
 			super.showData();
 			System.out.println("Dados referentes ao profissional:");
 			System.out.println("Id: " + this.idProfessional);
-			System.out.println("Profissão: " + this.profession);
-			System.out.println("Descrição: " + this.description);
+			System.out.println("Profissï¿½o: " + this.profession);
+			System.out.println("Descriï¿½ï¿½o: " + this.description);
 		}
 }
 

@@ -2,3 +2,7 @@
 /PesoDAO.class
 /IPressaoArterialDAO.class
 /PressaoArterialDAO.class
+/IAlimentacaoDAO.class
+/AlimentacaoDAO.class
+/IProfissionalDAO.class
+/ProfissionalDAO.class

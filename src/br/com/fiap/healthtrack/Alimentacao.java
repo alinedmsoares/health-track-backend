@@ -1,11 +1,12 @@
 package br.com.fiap.healthtrack;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
- * Classe que abstrai uma alimentação realizada pelo usuário.
- * Um usuário pode realizar várias alimentações ao longo do dia.
- * Um usuário pode não realizar nenhuma alimentação.
+ * Classe que abstrai uma alimentaÃ§Ã£o realizada pelo usuÃ¡rio.
+ * Um usuÃ¡rio pode realizar vÃ¡rias alimentaÃ§Ãµes ao longo do dia.
+ * Um usuÃ¡rio pode nÃ£o realizar nenhuma alimentaÃ§Ã£o.
  * @author Marcelo Portella
  * @version 0.1
  */
@@ -16,139 +17,81 @@ public class Alimentacao implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
-	// Variáveis de Instância
-	
 	/**
-	 * Data da Alimentação.
+	 * ID da AlimentaÃ§Ã£o.
 	 */
-	private String mealDate;
+	private int idAlimentacao;
 	
 	/**
-	 * Código da Alimentação.
-	 * A (Café da manhã), B (Almoço), C (Janta), D (Outras Alimentações).
+	 * Total de Calorias (kcal) da AlimentaÃ§Ã£o.
 	 */
-	private char mealType;
+	private int qtdeCaloria;
 	
 	/**
-	 * Total de Calorias (kcal) da Alimentação.
+	 * DescriÃ§Ã£o do Alimento.
 	 */
-	private float mealKcal;
+	private String descricaoAlimento;
 	
 	/**
-	 * Observações da Alimentação.
+	 * Data da alimentaÃ§Ã£o.
 	 */
-	private String mealNotes;
+	private Date dataAlimentacao;
 	
-	
-	// Construtores da Classe
 	
 	/**
-	 * Construtor padrão da classe.
+	 * Construtor padrÃ£o da classe.
 	 */
 	public Alimentacao() {
 	}
-
-	/**
-	 * Construtor completo.
-	 * @param mealDate Data desta alimentação.
-	 * @param mealType Tipo de alimentação que está sendo registrada.
-	 * @param mealKcal Total de calorias consumidas nesta alimentação.
-	 */
-	public Alimentacao(String mealDate, char mealType, float mealKcal) {
-		this.mealDate = mealDate;
-		this.mealType = mealType;
-		this.mealKcal = mealKcal;
-	}
-
-	/**
-	 * Construtor completo (com observações).
-	 * @param mealDate Data desta alimentação.
-	 * @param mealType Tipo de alimentação que está sendo registrada.
-	 * @param mealKcal Total de calorias consumidas nesta alimentação.
-	 * @param mealNotes Observações desta refeição.
-	 */
-	public Alimentacao(String mealDate, char mealType, float mealKcal, String mealNotes) {
-		this.mealDate = mealDate;
-		this.mealType = mealType;
-		this.mealKcal = mealKcal;
-		this.mealNotes = mealNotes;
+	
+	public Alimentacao(int idAlimentacao, int qtdeCaloria, String descricaoAlimento, Date dataAlimentacao) {
+		this.idAlimentacao = idAlimentacao;
+		this.qtdeCaloria = qtdeCaloria;
+		this.descricaoAlimento = descricaoAlimento;
+		this.dataAlimentacao = dataAlimentacao;
 	}
 
 
-	// Getters & Setters
+	public int getIdAlimentacao() {
+		return idAlimentacao;
+	}
 
-	/**
-	 * Consulta a data da alimentação.
-	 * @return Data da Alimentação.
-	 */
-	public String getMealDate() {
-		return mealDate;
+
+	public void setIdAlimentacao(int idAlimentacao) {
+		this.idAlimentacao = idAlimentacao;
 	}
-	/**
-	 * Modifica a data da alimentação.
-	 * @param mealDate A data da alimentação.
-	 */
-	public void setMealDate(String mealDate) {
-		this.mealDate = mealDate;
+
+
+	public int getQtdeCaloria() {
+		return qtdeCaloria;
 	}
+
+
+	public void setQtdeCaloria(int qtdeCaloria) {
+		this.qtdeCaloria = qtdeCaloria;
+	}
+
+
+	public String getDescricaoAlimento() {
+		return descricaoAlimento;
+	}
+
+
+	public void setDescricaoAlimento(String descricaoAlimento) {
+		this.descricaoAlimento = descricaoAlimento;
+	}
+
+
+	public Date getDataAlimentacao() {
+		return dataAlimentacao;
+	}
+
+
+	public void setDataAlimentacao(Date dataAlimentacao) {
+		this.dataAlimentacao = dataAlimentacao;
+	}
+
 
 	
-	/**
-	 * Consulta o código da alimentação.
-	 * @return Código da alimentação (mealType).
-	 */
-	public char getMealType() {
-		return mealType;
-	}
-	/**
-	 * Modifica o código da alimentação.
-	 * @param mealType O código da alimentação.
-	 */
-	public void setMealType(char mealType) {
-		this.mealType = mealType;
-	}
 
-	
-	/**
-	 * Consulta o total de calorias da alimentação.
-	 * @return Total de calorias (kcal).
-	 */
-	public float getMealKcal() {
-		return mealKcal;
-	}
-	/**
-	 * Modifica o total de calorias da alimentação.
-	 * @param mealKcal O total de calorias (kcal).
-	 */
-	public void setMealKcal(float mealKcal) {
-		this.mealKcal = mealKcal;
-	}
-
-	
-	/**
-	 * Consulta as observações da alimentação.
-	 * @return Observações da alimentação.
-	 */
-	public String getMealNotes() {
-		return mealNotes;
-	}
-	/**
-	 * Modifica as observações da alimentação.
-	 * @param mealNotes Observações da alimentação.
-	 */
-	public void setMealNotes(String mealNotes) {
-		this.mealNotes = mealNotes;
-	}
-
-	public void showData() {
-		System.out.println("");
-		System.out.println("Dados referentes a alimentação:");
-		System.out.println(String.format("Data da alimentação: %s", mealDate));
-		System.out.println(String.format("Cód. da alimentação: %s", mealType));
-		System.out.println(String.format("Total de kcal: %s", mealKcal));
-		System.out.println(String.format("Obs. da alimentação: %s", mealNotes));
-		System.out.println("");
-
-	}
 }
