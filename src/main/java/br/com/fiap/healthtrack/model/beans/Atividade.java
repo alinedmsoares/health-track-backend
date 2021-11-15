@@ -7,6 +7,7 @@ public class Atividade implements Serializable {
 
 	private long idAtividade;
 	private String dataAtividade;
+	private String horaAtividade;
 	private String categoria;
 	private short kcal;
 	private String descricao;
@@ -28,6 +29,14 @@ public class Atividade implements Serializable {
 
 	public void setDataAtividade(String dataAtividade) {
 		this.dataAtividade = dataAtividade;
+	}
+
+	public String getHoraAtividade() {
+		return horaAtividade;
+	}
+
+	public void setHoraAtividade(String horaAtividade) {
+		this.horaAtividade = horaAtividade;
 	}
 
 	public String getCategoria() {

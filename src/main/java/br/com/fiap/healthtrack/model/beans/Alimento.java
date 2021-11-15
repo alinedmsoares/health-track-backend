@@ -7,10 +7,11 @@ public class Alimento implements Serializable {
 	
 	private long idAlimento;
 	private String dataAlimento;
+	private String horaAlimento;
 	private String categoria;
 	private short kcal;
 	private String descricao;
-	
+
 	public Alimento() {
 	}
 
@@ -28,6 +29,14 @@ public class Alimento implements Serializable {
 
 	public void setDataAlimento(String dataAlimento) {
 		this.dataAlimento = dataAlimento;
+	}
+
+	public String getHoraAlimento() {
+		return horaAlimento;
+	}
+
+	public void setHoraAlimento(String hora) {
+		this.horaAlimento = hora;
 	}
 
 	public String getCategoria() {
