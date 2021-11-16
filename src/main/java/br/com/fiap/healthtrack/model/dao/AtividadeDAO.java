@@ -15,7 +15,7 @@ public class AtividadeDAO {
 		List<Atividade> listaAtividade = new ArrayList<Atividade>();
 		try {
 			Connection conexao = ConnectionManager.getInstance().getConnection();
-			PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_ATIVIDADE WHERE USUARIO_ID_USUARIO = ?;");
+			PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_ATIVIDADE WHERE T_USUARIO_ID_USUARIO = ?;");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -53,7 +53,7 @@ public class AtividadeDAO {
 	public int add(long id, Atividade atividade) {
 		Connection conexao = ConnectionManager.getInstance().getConnection();
 		try {
-			PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_ATIVIDADE (ID_ATIVIDADE, DT_ATIVIDADE, CATEGORIA, KCAL, DESCRICAO, USUARIO_ID_USUARIO) "
+			PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_ATIVIDADE (ID_ATIVIDADE, DT_ATIVIDADE, CATEGORIA, KCAL, DESCRICAO, T_USUARIO_ID_USUARIO) "
 															+ "VALUES (SEQ_ATIVIDADE.nextval, ?, ?, ?, ?, ?);");
 			String dataAtividade = atividade.getDataAtividade() + " " + atividade.getHoraAtividade() + ":00";
 			stmt.setTimestamp(1, java.sql.Timestamp.valueOf(dataAtividade));

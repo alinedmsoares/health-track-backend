@@ -15,18 +15,18 @@ public class PressaoDAO {
 		List<Pressao> listaPressao = new ArrayList<Pressao>();
 		try {
 			Connection conexao = ConnectionManager.getInstance().getConnection();
-			PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_PRESSAO WHERE USUARIO_ID_USUARIO = ?;");
+			PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_PRESSAO WHERE T_USUARIO_ID_USUARIO = ?;");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Pressao medicao = new Pressao();
 				long idPressao = rs.getLong("ID_PRESSAO");
 				medicao.setIdPressao(idPressao);
-				short sistolica = rs.getShort("SISTOLICA");
+				short sistolica = rs.getShort("PRESSAO_SISTOLICA");
 				medicao.setPressaoDiastolica(sistolica);
-				short diastolica = rs.getShort("DIASTOLICA");
+				short diastolica = rs.getShort("PRESSAO_DIASTOLICA");
 				medicao.setPressaoDiastolica(diastolica);
-				java.sql.Date sqlDate = rs.getDate("DT_PRESSAO");
+				java.sql.Date sqlDate = rs.getDate("DT_MEDICAO");
 				int dia = sqlDate.toLocalDate().getDayOfMonth();
 				int mes = sqlDate.toLocalDate().getMonthValue();
 				int ano = sqlDate.toLocalDate().getYear();
@@ -47,7 +47,7 @@ public class PressaoDAO {
 	public int add(long id, Pressao pressao) {
 		Connection conexao = ConnectionManager.getInstance().getConnection();
 		try {
-			PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_PRESSAO (ID_PRESSAO, SISTOLICA, DIASTOLICA, DT_PRESSAO, USUARIO_ID_USUARIO) "
+			PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_PRESSAO (ID_PRESSAO, PRESSAO_SISTOLICA, PRESSAO_DIASTOLICA, DT_MEDICAO, USUARIO_ID_USUARIO) "
 															+ "VALUES (SEQ_PRESSAO.nextval, ?, ?, ?, ?);");
 			stmt.setShort(1, pressao.getPressaoSistolica());
 			stmt.setShort(2, pressao.getPressaoDiastolica());
@@ -75,7 +75,7 @@ public class PressaoDAO {
 	public int update(Pressao pressao) {
 		Connection conexao = ConnectionManager.getInstance().getConnection();
 		try {
-			PreparedStatement stmt = conexao.prepareStatement("UPDATE T_PRESSAO SET SISTOLICA = ?, DIASTOLICA = ?, DT_PRESSAO = ? WHERE ID_PRESSAO = ?;");
+			PreparedStatement stmt = conexao.prepareStatement("UPDATE T_PRESSAO SET PRESSAO_SISTOLICA = ?, PRESSAO_DIASTOLICA = ?, DT_MEDICAO = ? WHERE ID_PRESSAO = ?;");
 			stmt.setShort(1, pressao.getPressaoSistolica());
 			stmt.setShort(2, pressao.getPressaoDiastolica());
 			stmt.setDate(3, java.sql.Date.valueOf(pressao.getDataPressao()));

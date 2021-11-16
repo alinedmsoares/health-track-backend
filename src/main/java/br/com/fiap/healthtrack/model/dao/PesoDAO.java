@@ -16,7 +16,7 @@ public class PesoDAO {
 		List<Peso> listaPeso = new ArrayList<Peso>();
 		try {
 			Connection conexao = ConnectionManager.getInstance().getConnection();
-			PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_PESO WHERE USUARIO_ID_USUARIO = ?;");
+			PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_PESO WHERE T_USUARIO_ID_USUARIO = ?;");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -25,7 +25,7 @@ public class PesoDAO {
 				pesagem.setIdPeso(idPeso);
 				float peso = rs.getFloat("PESO");
 				pesagem.setPeso(peso);
-				java.sql.Date sqlDate = rs.getDate("DT_PESO");
+				java.sql.Date sqlDate = rs.getDate("DT_PESAGEM");
 				int dia = sqlDate.toLocalDate().getDayOfMonth();
 				int mes = sqlDate.toLocalDate().getMonthValue();
 				int ano = sqlDate.toLocalDate().getYear();
@@ -46,7 +46,7 @@ public class PesoDAO {
 	public int add(long id, Peso peso) {
 		Connection conexao = ConnectionManager.getInstance().getConnection();
 		try {
-			PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_PESO (ID_PESO, PESO, DT_PESO, USUARIO_ID_USUARIO) "
+			PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_PESO (ID_PESO, PESO, DT_PESAGEM, USUARIO_ID_USUARIO) "
 															+ "VALUES (SEQ_PESO.nextval, ?, ?, ?);");
 			stmt.setFloat(1, peso.getPeso());
 			stmt.setDate(2, java.sql.Date.valueOf(peso.getDataPeso()));
@@ -73,7 +73,7 @@ public class PesoDAO {
 	public int update(Peso peso) {
 		Connection conexao = ConnectionManager.getInstance().getConnection();
 		try {
-			PreparedStatement stmt = conexao.prepareStatement("UPDATE T_PESO SET PESO = ?, DT_PESO = ? WHERE ID_PESO = ?;");
+			PreparedStatement stmt = conexao.prepareStatement("UPDATE T_PESO SET PESO = ?, DT_PESAGEM = ? WHERE ID_PESO = ?;");
 			stmt.setFloat(1, peso.getPeso());
 			stmt.setDate(2, java.sql.Date.valueOf(peso.getDataPeso()));
 			stmt.setLong(3, peso.getIdPeso());

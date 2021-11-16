@@ -22,7 +22,7 @@ public class AlimentoDAO {
 				Alimento refeicao = new Alimento();
 				long idAlimento = rs.getLong("ID_ALIMENTO");
 				refeicao.setIdAlimento(idAlimento);
-				java.sql.Timestamp sqlDate = rs.getTimestamp("DT_PRESSAO");
+				java.sql.Timestamp sqlDate = rs.getTimestamp("DT_ALIMENTO");
 				int dia = sqlDate.toLocalDateTime().getDayOfMonth();
 				int mes = sqlDate.toLocalDateTime().getMonthValue();
 				int ano = sqlDate.toLocalDateTime().getYear();

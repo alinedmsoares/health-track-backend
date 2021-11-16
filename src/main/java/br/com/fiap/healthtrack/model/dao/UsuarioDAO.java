@@ -20,7 +20,7 @@ public class UsuarioDAO {
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
 				usuario.setIdUsuario(rs.getLong("ID_USUARIO"));
-				usuario.setNomeUsuario(rs.getString("NM_USUARIO"));
+				usuario.setNomeUsuario(rs.getString("NOME_USUARIO"));
 				java.sql.Date sqlData = rs.getDate("DT_NASCIMENTO");
 				String data = sqlData.toString();
 				usuario.setDataNascimento(data);
@@ -75,7 +75,7 @@ public class UsuarioDAO {
 	public int update(Usuario usuario) {
 			Connection conexao = ConnectionManager.getInstance().getConnection();
 			try {
-				PreparedStatement stmt = conexao.prepareStatement("UPDATE T_USUARIO SET NM_USUARIO = ?, DT_NASCIMENTO = ?, GENERO = ?, ALTURA = ?, EMAIL = ?, SENHA = ? WHERE ID_USUARIO = ?;");
+				PreparedStatement stmt = conexao.prepareStatement("UPDATE T_USUARIO SET NOME_USUARIO = ?, DT_NASCIMENTO = ?, GENERO = ?, ALTURA = ?, EMAIL = ?, SENHA = ? WHERE ID_USUARIO = ?;");
 				stmt.setString(1, usuario.getNomeUsuario());
 				stmt.setDate(2, java.sql.Date.valueOf(usuario.getDataNascimento()));
 				stmt.setString(3, usuario.getGenero());
