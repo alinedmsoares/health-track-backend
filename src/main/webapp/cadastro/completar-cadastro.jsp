@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,8 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="${pageContext.request.contextPath}/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/favicon/favicon-16x16.png">
-    <title>Login | Health Track</title>
-
+    <title>Cadastrar | Health Track</title>
 </head>
 
 <body>
@@ -23,7 +21,7 @@
 
             <div class="login-bg-modal-image">
 
-                <img src="assets/images/login/art.svg" alt="Ilustração de um homem correndo ao lado de um smartphone com um coração na tela." width="100%" height="100%">
+                <img src="${pageContext.request.contextPath}/assets/images/new/yoga.svg" alt="Ilustração de uma mulher praticando yoga." width="100%" height="100%">
 
             </div>
 
@@ -31,37 +29,38 @@
 
                 <div class="header">
 
-                    <div class="title">Login</div>
+                    <div class="title">Cadastre-se</div>
 
-                    <span class="text-light">Não possui uma conta? <a href="cadastro" class="link">Cadastre-se!</a></span>
+                    <span class="text-light">Já possui uma conta? <a href="${pageContext.request.contextPath}/index.jsp" class="link">Login</a></span>
 
                 </div>
 
-                <form class="form" action="login" method="post">
+                <form class="form" action="continuar" method="post">
+
+					<input type="hidden" name="nome" value="${nome}">
+					<input type="hidden" name="data" value="${data}">
+					<input type="hidden" name="email" value="${email}">
+					<input type="hidden" name="senha" value="${senha}">
 
                     <div class="item">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" required>
+                        <label for="altura">Altura (cm)</label>
+                        <input type="text" name="altura" required>
                     </div>
 
                     <div class="item">
-                        <label for="senha">Senha</label>
-                        <input type="password" name="senha" required>
-                    </div>
+                        <label for="genero">Gênero</label>
+                        <select name="genero" id="genero" required>
 
-                    <a href="esqueci-minha-senha.html" class="link-secondary">Esqueci minha senha</a>
+                            <option value="default" disabled selected>Selecione</option>
+                            <option value="f">Feminino</option>
+                            <option value="m">Masculino</option>
+    
+                        </select>
+                    </div>
 
                     <div class="button">
 
-                        <button class="primary" type="submit">Entrar</button>
-
-                        <div class="remember">
-
-                            <input type="checkbox" name="password" class="checkbox">
-
-                            <span class="text-light">Lembrar dados de acesso</span>
-
-                        </div>
+                        <button class="primary">Cadastrar</button>
 
                     </div>
 

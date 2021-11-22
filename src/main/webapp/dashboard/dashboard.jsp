@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="${pageContext.request.contextPath}/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/favicon/favicon-16x16.png">
     <title>Dashboard | Health Track</title>
 </head>
 
@@ -25,18 +26,18 @@
             <span></span>
 
             <ul id="menu">
-                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="dashboard">Dashboard</a></li>
                 <li>
-                    <a href="../pesos/pesos.html">Pesos</a>
+                    <a href="peso">Pesos</a>
                 </li>
                 <li>
-                    <a href="../pressoes/pressoes.html">Pressão arterial</a>
+                    <a href="pressao">Pressão arterial</a>
                 </li>
                 <li>
-                    <a href="../alimentos/alimentos.html">Alimentação</a>
+                    <a href="alimento">Alimentação</a>
                 </li>
                 <li>
-                    <a href="../atividades/atividades.html">Atividades</a>
+                    <a href="atividade">Atividades</a>
                 </li>
             </ul>
         </div>
@@ -45,22 +46,22 @@
     <div class="menu">
 
         <ul>
-            <li><a href="dashboard.html" class="selected">Dashboard</a></li>
+            <li><a href="dashboard" class="selected">Dashboard</a></li>
             <li>
-                <a href="../pesos/pesos.html">Pesos</a>
+                <a href="peso">Pesos</a>
             </li>
             <li>
-                <a href="../pressoes/pressoes.html">Pressão arterial</a>
+                <a href="pressao">Pressão arterial</a>
             </li>
             <li>
-                <a href="../alimentos/alimentos.html">Alimentação</a>
+                <a href="alimento">Alimentação</a>
             </li>
             <li>
-                <a href="../atividades/atividades.html">Atividades</a>
+                <a href="atividade">Atividades</a>
             </li>
         </ul>
 
-        <button><a href="index.html">Sair</a></button>
+        <button><a href="login">Sair</a></button>
     </div>
 
     <div class="dashboard-header">
@@ -82,7 +83,18 @@
         <div class="dashboard-charts">
 
             <div class="card-chart" id="weight">
-                <h2 class="chart-title">Peso</h2>
+                <h2 class="chart-title">
+                
+                <c:set var="status" value="${peso0}"/>
+                <%
+                        if (Float.parseFloat(pageContext.getAttribute("status").toString()) == 0.0f) {
+                        	out.print("Peso (Dados insuficientes - cadastre seu peso por 7 dias)");
+                        } else {
+                        	out.print("Peso");
+                        }
+                 %>
+                
+                </h2>
                 <canvas id="chLine"> </canvas>
             </div>
 
@@ -148,4 +160,35 @@
 
 </html>
 
-<script src="${pageContext.request.contextPath}/dashboard/script.js"></script>
+<script type="text/javascript">
+const chLine = document.getElementById("chLine");
+const chartDataWeight = {
+    labels: ["${data0}", "${data1}", "${data2}", "${data3}", "${data4}", "${data5}", "${data6}"],
+    datasets: [{
+        data: [${peso0}, ${peso1}, ${peso2}, ${peso3}, ${peso4}, ${peso5}, ${peso6}],
+        backgroundColor: '#a8caff',
+        borderColor: '#007bff',
+        borderWidth: 4,
+        pointBackgroundColor: '#007bff'
+    }]
+};
+
+if (chLine) {
+    new Chart(chLine, {
+        type: 'line',
+        data: chartDataWeight,
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: false
+                    }
+                }]
+            },
+            legend: {
+                display: false
+            }
+        }
+    });
+}
+</script>

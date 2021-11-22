@@ -1,14 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="${pageContext.request.contextPath}/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/favicon/favicon-16x16.png">
     <title>Editar Atividade | Health Track</title>
 </head>
 
@@ -23,21 +24,21 @@
             <span></span>
 
             <ul id="menu">
-                <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+                <li><a href="../dashboard">Dashboard</a></li>
                 <li>
-                    <a href="../pesos/pesos.html">Pesos</a>
+                    <a href="../peso">Pesos</a>
                 </li>
                 <li>
-                    <a href="../pressoes/pressoes.html">Press√£o arterial</a>
+                    <a href="../pressao">Press„o arterial</a>
                 </li>
                 <li>
-                    <a href="../alimentos/alimentos.html">Alimenta√ß√£o</a>
+                    <a href="../alimento">AlimentaÁ„o</a>
                 </li>
                 <li>
-                    <a href="../atividades/atividades.html">Atividades</a>
+                    <a href="../atividade">Atividades</a>
                 </li>
                 <li>
-                    <a href="../index.html">Sair</a>
+                    <a href="login">Sair</a>
                 </li>
             </ul>
         </div>
@@ -46,22 +47,22 @@
     <div class="menu">
 
         <ul>
-            <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+            <li><a href="../dashboard">Dashboard</a></li>
             <li>
-                <a href="../pesos/pesos.html">Pesos</a>
+                <a href="../peso">Pesos</a>
             </li>
             <li>
-                <a href="../pressoes/pressoes.html">Press√£o arterial</a>
+                <a href="../pressao">Press„o arterial</a>
             </li>
             <li>
-                <a href="../alimentos/alimentos.html">Alimenta√ß√£o</a>
+                <a href="../alimento">AlimentaÁ„o</a>
             </li>
             <li>
-                <a href="../atividades/atividades.html" class="selected">Atividades</a>
+                <a href="../atividade" class="selected">Atividades</a>
             </li>
         </ul>
 
-        <button><a href="../index.html">Sair</a></button>
+        <button><a href="login">Sair</a></button>
     </div>
 
     <div class="main atividades">
@@ -85,32 +86,32 @@
                 <select name="categoria" required>
 
                     <option value="" disabled>Selecione</option>
-                    <option value="caminhada" selected>Caminhada</option>
+                    <option value="caminhada">Caminhada</option>
                     <option value="corrida">Corrida</option>
                     <option value="pedalada">Pedalada</option>
-                    <option value="musculacao">Muscula√ß√£o</option>
+                    <option value="musculacao">MusculaÁ„o</option>
 
                 </select>
             </div>
 
             <div class="item">
                 <label for="calorias">Qtd. de calorias queimadas</label>
-                <input class="input" type="text" value="210" required>
+                <input class="input" type="text" value="${kcal}" required>
             </div>
 
             <div class="item">
-                <label for="descricao">Descri√ß√£o (opcional)</label>
-                <input class="input" type="text" value="30 minutos de caminhada">
+                <label for="descricao">DescriÁ„o (opcional)</label>
+                <input class="input" type="text" value="${descricao}">
             </div>
 
             <div class="item">
                 <label for="data">Data da atividade</label>
-                <input class="input" type="datetime-local" value="2021-06-30T18:30:00" required>
+                <input class="input" type="datetime-local" value="${data}" required>
             </div>
 
             <div class="button">
 
-                <button class="primary"><a href="atividades.html">Salvar</a></button>
+                <button class="primary">Salvar</button>
 
             </div>
 
@@ -124,6 +125,6 @@
 
 <script>
     function perfil() {
-        window.location.href = "../perfil/perfil.html";
+        window.location.href = "${pageContext.request.contextPath}/perfil/perfil.html";
     }
 </script>

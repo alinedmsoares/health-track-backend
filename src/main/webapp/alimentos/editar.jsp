@@ -1,14 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="${pageContext.request.contextPath}/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/favicon/favicon-16x16.png">
     <title>Editar Alimento | Health Track</title>
 </head>
 
@@ -23,18 +24,18 @@
             <span></span>
 
             <ul id="menu">
-                <li><a href="../../dashboard.html">Dashboard</a></li>
+                <li><a href="../dashboard">Dashboard</a></li>
                 <li>
-                    <a href="../../pesos/pesos.html">Pesos</a>
+                    <a href="../peso">Pesos</a>
                 </li>
                 <li>
-                    <a href="../../pressoes/pressoes.html">Press√£o arterial</a>
+                    <a href="../pressao">Press„o arterial</a>
                 </li>
                 <li>
-                    <a href="../../alimentos/alimentos.html">Alimenta√ß√£o</a>
+                    <a href="../alimento">AlimentaÁ„o</a>
                 </li>
                 <li>
-                    <a href="../../atividades/atividades.html">Atividades</a>
+                    <a href="../atividade">Atividades</a>
                 </li>
             </ul>
         </div>
@@ -43,22 +44,22 @@
     <div class="menu">
 
         <ul>
-            <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+            <li><a href="../dashboard">Dashboard</a></li>
             <li>
-                <a href="../pesos/pesos.html">Pesos</a>
+                <a href="../peso">Pesos</a>
             </li>
             <li>
-                <a href="../pressoes/pressoes.html">Press√£o arterial</a>
+                <a href="../pressao">Press„o arterial</a>
             </li>
             <li>
-                <a href="../alimentos/alimentos.html" class="selected">Alimenta√ß√£o</a>
+                <a href="../alimento" class="selected">AlimentaÁ„o</a>
             </li>
             <li>
-                <a href="../atividades/atividades.html">Atividades</a>
+                <a href="../atividade">Atividades</a>
             </li>
         </ul>
 
-        <button><a href="../index.html">Sair</a></button>
+        <button><a href="../login">Sair</a></button>
     </div>
 
     <div class="main alimentos">
@@ -82,9 +83,9 @@
                 <select name="categoria" required>
 
                     <option value="" disabled>Selecione</option>
-                    <option value="cafe" selected>Caf√© da manh√£</option>
+                    <option value="cafe">CafÈ da manh„</option>
                     <option value="lanche">Lanche leve</option>
-                    <option value="almoco_janta">Almo√ßo/Janta</option>
+                    <option value="almoco_janta">AlmoÁo/Janta</option>
                     <option value="fruta">Fruta</option>
 
                 </select>
@@ -96,8 +97,8 @@
             </div>
 
             <div class="item">
-                <label for="descricao">Descri√ß√£o (opcional)</label>
-                <input class="input" type="text" value="P√£o com presunto e queijo">
+                <label for="descricao">DescriÁ„o (opcional)</label>
+                <input class="input" type="text" value="P„o com presunto e queijo">
             </div>
 
             <div class="item">
@@ -107,7 +108,7 @@
 
             <div class="button">
 
-                <button class="primary"><a href="alimentos.html">Salvar</a></button>
+                <button class="primary">Salvar</button>
 
             </div>
 
@@ -121,6 +122,6 @@
 
 <script>
     function perfil() {
-        window.location.href = "../perfil/perfil.html";
+        window.location.href = "${pageContext.request.contextPath}/perfil/perfil.html";
     }
 </script>

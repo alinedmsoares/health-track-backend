@@ -15,7 +15,7 @@ public class AtividadeDAO {
 		List<Atividade> listaAtividade = new ArrayList<Atividade>();
 		try {
 			Connection conexao = ConnectionManager.getInstance().getConnection();
-			PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_ATIVIDADE WHERE T_USUARIO_ID_USUARIO = ?;");
+			PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_ATIVIDADE WHERE USUARIO_ID_USUARIO = ? ORDER BY DT_ATIVIDADE DESC");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -31,6 +31,9 @@ public class AtividadeDAO {
 				int hora = sqlDate.toLocalDateTime().getHour();
 				int minuto = sqlDate.toLocalDateTime().getMinute();
 				String horaAtividade = hora + ":" + minuto;
+				if (minuto <= 9) {
+					horaAtividade = hora + ":0" + minuto;
+				}
 				atv.setHoraAtividade(horaAtividade);
 				String categoria = rs.getString("CATEGORIA");
 				atv.setCategoria(categoria);
@@ -53,9 +56,10 @@ public class AtividadeDAO {
 	public int add(long id, Atividade atividade) {
 		Connection conexao = ConnectionManager.getInstance().getConnection();
 		try {
-			PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_ATIVIDADE (ID_ATIVIDADE, DT_ATIVIDADE, CATEGORIA, KCAL, DESCRICAO, T_USUARIO_ID_USUARIO) "
-															+ "VALUES (SEQ_ATIVIDADE.nextval, ?, ?, ?, ?, ?);");
-			String dataAtividade = atividade.getDataAtividade() + " " + atividade.getHoraAtividade() + ":00";
+			PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_ATIVIDADE (ID_ATIVIDADE, DT_ATIVIDADE, CATEGORIA, KCAL, DESCRICAO, USUARIO_ID_USUARIO) "
+															+ "VALUES (SEQ_ATIVIDADE.nextval, ?, ?, ?, ?, ?)");
+			String dataAtividade = atividade.getDataAtividade() + ":00";
+			dataAtividade = dataAtividade.replace('T', ' ');
 			stmt.setTimestamp(1, java.sql.Timestamp.valueOf(dataAtividade));
 			stmt.setString(2, atividade.getCategoria());
 			stmt.setShort(3, atividade.getKcal());
@@ -83,8 +87,9 @@ public class AtividadeDAO {
 	public int update(Atividade atividade) {
 		Connection conexao = ConnectionManager.getInstance().getConnection();
 		try {
-			PreparedStatement stmt = conexao.prepareStatement("UPDATE T_ATIVIDADE SET DT_ATIVIDADE = ?, CATEGORIA = ?, KCAL = ?, DESCRICAO = ? WHERE ID_ATIVIDADE = ?;");
-			String dataAtividade = atividade.getDataAtividade() + " " + atividade.getHoraAtividade() + ":00";
+			PreparedStatement stmt = conexao.prepareStatement("UPDATE T_ATIVIDADE SET DT_ATIVIDADE = ?, CATEGORIA = ?, KCAL = ?, DESCRICAO = ? WHERE ID_ATIVIDADE = ?");
+			String dataAtividade = atividade.getDataAtividade() + ":00";
+			dataAtividade = dataAtividade.replace('T', ' ');
 			stmt.setTimestamp(1, java.sql.Timestamp.valueOf(dataAtividade));
 			stmt.setString(2, atividade.getCategoria());
 			stmt.setShort(3, atividade.getKcal());
@@ -112,7 +117,7 @@ public class AtividadeDAO {
 	public int delete(long id) {
 		Connection conexao = ConnectionManager.getInstance().getConnection();
 		try {
-			PreparedStatement stmt = conexao.prepareStatement("DELETE FROM T_ATIVIDADE WHERE ID_ATIVIDADE = ?;");
+			PreparedStatement stmt = conexao.prepareStatement("DELETE FROM T_ATIVIDADE WHERE ID_ATIVIDADE = ?");
 			stmt.setLong(1, id);
 			stmt.executeUpdate();
 			conexao.commit();

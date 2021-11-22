@@ -1,23 +1,28 @@
-package br.com.fiap.healthtrack.controller.cadastro;
+package br.com.fiap.healthtrack.controller.pressao;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/cadastro")
-public class CadastroController extends HttpServlet {
+@WebServlet("/pressao/editar")
+public class PressaoEditController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public CadastroController() {
+    public PressaoEditController() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("cadastro/cadastrar.jsp");
+
+		request.getRequestDispatcher("../pressoes/editar.jsp").forward(request, response);
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 	}
 
 }

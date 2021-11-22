@@ -1,15 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <title>Editar Medi√ß√£o | Health Track</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="${pageContext.request.contextPath}/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/favicon/favicon-16x16.png">
+    <title>Editar MediÁ„o | Health Track</title>
 </head>
 
 <body>
@@ -23,21 +24,21 @@
             <span></span>
 
             <ul id="menu">
-                <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+                <li><a href="../dashboard">Dashboard</a></li>
                 <li>
-                    <a href="../pesos/pesos.html">Pesos</a>
+                    <a href="../peso">Pesos</a>
                 </li>
                 <li>
-                    <a href="../pressoes/pressoes.html">Press√£o arterial</a>
+                    <a href="../pressao">Press„o arterial</a>
                 </li>
                 <li>
-                    <a href="../alimentos/alimentos.html">Alimenta√ß√£o</a>
+                    <a href="../alimento">AlimentaÁ„o</a>
                 </li>
                 <li>
-                    <a href="../atividades/atividades.html">Atividades</a>
+                    <a href="../atividade">Atividades</a>
                 </li>
                 <li>
-                    <a href="../index.html">Sair</a>
+                    <a href="../login">Sair</a>
                 </li>
             </ul>
         </div>
@@ -46,22 +47,22 @@
     <div class="menu">
 
         <ul>
-            <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+            <li><a href="../dashboard">Dashboard</a></li>
             <li>
-                <a href="../pesos/pesos.html">Pesos</a>
+                <a href="../peso">Pesos</a>
             </li>
             <li>
-                <a href="../pressoes/pressoes.html" class="selected">Press√£o arterial</a>
+                <a href="../pressao" class="selected">Press„o arterial</a>
             </li>
             <li>
-                <a href="../alimentos/alimentos.html">Alimenta√ß√£o</a>
+                <a href="../alimento">AlimentaÁ„o</a>
             </li>
             <li>
-                <a href="../atividades/atividades.html">Atividades</a>
+                <a href="../atividade">Atividades</a>
             </li>
         </ul>
 
-        <button><a href="../index.html">Sair</a></button>
+        <button><a href="../login">Sair</a></button>
     </div>
 
     <div class="main pressao">
@@ -70,7 +71,7 @@
 
             <div class="text">
 
-                <div class="title">Editar medi√ß√£o</div>
+                <div class="title">Editar mediÁ„o</div>
 
             </div>
 
@@ -81,17 +82,17 @@
         <form class="form">
 
             <div class="item">
-                <label for="sistolica">Press√£o sist√≥lica</label>
+                <label for="sistolica">Press„o sistÛlica</label>
                 <input class="input" type="text" value="120" required>
             </div>
 
             <div class="item">
-                <label for="diastolica">Press√£o diast√≥lica</label>
+                <label for="diastolica">Press„o diastÛlica</label>
                 <input class="input" type="text" value="80" required>
             </div>
 
             <div class="item">
-                <label for="data">Data da medi√ß√£o</label>
+                <label for="data">Data da mediÁ„o</label>
                 <input class="input" type="date" value="2021-06-30" required>
             </div>
 
@@ -111,6 +112,6 @@
 
 <script>
     function perfil() {
-        window.location.href = "../perfil/perfil.html";
+        window.location.href = "${pageContext.request.contextPath}/perfil/perfil.html";
     }
 </script>

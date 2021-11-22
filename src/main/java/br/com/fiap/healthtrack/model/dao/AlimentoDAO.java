@@ -15,7 +15,7 @@ public class AlimentoDAO {
 		List<Alimento> listaAlimento = new ArrayList<Alimento>();
 		try {
 			Connection conexao = ConnectionManager.getInstance().getConnection();
-			PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_ALIMENTO WHERE USUARIO_ID_USUARIO = ?;");
+			PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_ALIMENTO WHERE USUARIO_ID_USUARIO = ? ORDER BY DT_ALIMENTO DESC");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -31,6 +31,9 @@ public class AlimentoDAO {
 				int hora = sqlDate.toLocalDateTime().getHour();
 				int minuto = sqlDate.toLocalDateTime().getMinute();
 				String horaAlimento = hora + ":" + minuto;
+				if (minuto <= 9) {
+					horaAlimento = hora + ":0" + minuto;
+				}
 				refeicao.setHoraAlimento(horaAlimento);
 				String categoria = rs.getString("CATEGORIA");
 				refeicao.setCategoria(categoria);
@@ -54,14 +57,14 @@ public class AlimentoDAO {
 		Connection conexao = ConnectionManager.getInstance().getConnection();
 		try {
 			PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_ALIMENTO (ID_ALIMENTO, DT_ALIMENTO, CATEGORIA, KCAL, DESCRICAO, USUARIO_ID_USUARIO) "
-															+ "VALUES (SEQ_ALIMENTO.nextval, ?, ?, ?, ?, ?);");
-			String dataAlimento = alimento.getDataAlimento() + " " + alimento.getHoraAlimento() + ":00";
+															+ "VALUES (SEQ_ALIMENTO.nextval, ?, ?, ?, ?, ?)");
+			String dataAlimento = alimento.getDataAlimento() + ":00";
+			dataAlimento = dataAlimento.replace('T', ' ');
 			stmt.setTimestamp(1, java.sql.Timestamp.valueOf(dataAlimento));
 			stmt.setString(2, alimento.getCategoria());
 			stmt.setShort(3, alimento.getKcal());
 			stmt.setString(4, alimento.getDescricao());
 			stmt.setLong(5, id);
-			
 			stmt.executeUpdate();
 			conexao.commit();
 			stmt.close();
@@ -84,11 +87,12 @@ public class AlimentoDAO {
 	public int update(Alimento alimento) {
 		Connection conexao = ConnectionManager.getInstance().getConnection();
 		try {
-			PreparedStatement stmt = conexao.prepareStatement("UPDATE T_ALIMENTO SET CATEGORIA = ?, KCAL = ?, DESCRICAO = ?, DT_ALIMENTO = ? WHERE ID_ALIMENTO = ?;");
+			PreparedStatement stmt = conexao.prepareStatement("UPDATE T_ALIMENTO SET CATEGORIA = ?, KCAL = ?, DESCRICAO = ?, DT_ALIMENTO = ? WHERE ID_ALIMENTO = ?");
 			stmt.setString(1, alimento.getCategoria());
 			stmt.setShort(2, alimento.getKcal());
 			stmt.setString(3, alimento.getDescricao());
-			String dataAlimento = alimento.getDataAlimento() + " " + alimento.getHoraAlimento() + ":00";
+			String dataAlimento = alimento.getDataAlimento() + ":00";
+			dataAlimento = dataAlimento.replace('T', ' ');
 			stmt.setTimestamp(4, java.sql.Timestamp.valueOf(dataAlimento));
 			stmt.setLong(5, alimento.getIdAlimento());
 			stmt.executeUpdate();
@@ -113,7 +117,7 @@ public class AlimentoDAO {
 	public int delete(long id) {
 		Connection conexao = ConnectionManager.getInstance().getConnection();
 		try {
-			PreparedStatement stmt = conexao.prepareStatement("DELETE FROM T_ALIMENTO WHERE ID_ALIMENTO = ?;");
+			PreparedStatement stmt = conexao.prepareStatement("DELETE FROM T_ALIMENTO WHERE ID_ALIMENTO = ?");
 			stmt.setLong(1, id);
 			stmt.executeUpdate();
 			conexao.commit();
